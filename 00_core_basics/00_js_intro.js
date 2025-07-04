@@ -28,6 +28,10 @@
     JS is weakly typed => data types are assumed, not explicitly defined and can change over the lifetime of the program
         (My personal opinion: this sucks. This is why TypeScript was such a great idea)
 */
+// In JavaScript, variables are NOT tied to data types
+let myName = "Rodrigo";
+myName = 100; // This is stupid, but accepted by JavaScript
+
 /*
     =============== JavaScript vs Node.js ===============
 
@@ -58,3 +62,12 @@
 
     Recommendations: Visual Studio Code + Google Chrome (dev tools)
 */
+
+// Default JavaScript behavior:
+// The index.html file will be parsed from top to bottom by the browser
+/** index.html
+ * <head> ... </head>
+ * <body>
+ *     <script src="calculator.js"></script>
+ * </body>
+ */
