@@ -34,3 +34,35 @@ let multiLineString = `This is
     syntax
 `; // WARNING: the added line breaks and tabs are actually part of the string, they are just not
 // actually rendered by the browser.
+
+///// FUNCTIONS /////
+
+// Functions may or may not return a value
+function greetUser(userName) {
+    alert("hello," + userName);
+}
+greetUser('Rodrigo');
+// Functions have a special behavior in JS. Functions are read before the js script is executed
+// Thus, you can have a call to foo() before function foo() is defined (I don't like this feature)
+
+///// GLOBAL and LOCAL SCOPE /////
+let globalVar;
+
+function foo() {
+    let bar = 10; // this is a local variable, only visible to foo()
+    globalVar = -2; // Not a good practice, but allowed
+}
+
+function foo2() {
+    // Pure function: doesn't modify any global variables
+    let num = 10;
+    num = num + 1;
+}
+// Local variables do NOT exist here
+
+// Shadowing //
+let shadow = "Global variable";
+
+function foo3() {
+    let shadow = "Local variable. This variable is shadowed by the global variable";
+}
