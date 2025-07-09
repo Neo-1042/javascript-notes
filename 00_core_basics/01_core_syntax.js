@@ -66,3 +66,12 @@ let shadow = "Global variable";
 function foo3() {
     let shadow = "Local variable. This variable is shadowed by the global variable";
 }
+
+// Write a function named 'transform' that takes two inputs:
+// A number as a first argument and another function as the second argument
+// The goal is to call that received function inside of 'transform' and pass the number argument
+// into it. The result is calling that received function with the passed number.
+
+function transform(numFoo, functionBar) {
+    return functionBar(numFoo); // Catch the value with the return statement
+}
