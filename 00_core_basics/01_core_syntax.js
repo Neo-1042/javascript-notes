@@ -15,7 +15,7 @@ totalUsers = 20; // ERROR, totalUsers' value cannot change
 
 let currentResult = 0; // camelCase for JavaScript is customary
 let current_result = 0; // BAD PRACTICE for JS (snake_case)
-let $variable = 0; // Allowed, but I don't like it, because it can be confused with PHP or jQuery
+let $variable = 0; // Allowed, but I don't like it, because it can be confused with PHP, jQuery or variable substitution
 let _foo = 'FOO'; // Allowed, but I don't like it either
 // let 4var = 0; NOT allowed
 // let var-b = 0; NOT allowed
@@ -74,4 +74,19 @@ function foo3() {
 
 function transform(numFoo, functionBar) {
     return functionBar(numFoo); // Catch the value with the return statement
+}
+
+///// CONVERTING DATA TYPES /////
+
+// Even if an input field is marked as "number", it is handled by JS as a string
+function add() {
+    // currentResult = currentResult + userInput.value; // number + string WRONG
+    currentResult = currentResult + parseFloat(userInput.value); // number + number OK
+    outputResult(currentResult,'');
+}
+
+function add2() {
+    // Instead of parseInt() or parseFloat(), you can use an extra '+' sign
+    currentResult = currentResult + +userInput.value; // NOTICE the extra '+' sign. I DON'T LIKE IT!! WTF JavaScript?!
+    outputResult(currentResult, '');
 }

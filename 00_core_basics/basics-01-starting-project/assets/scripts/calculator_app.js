@@ -2,14 +2,15 @@
 // Reminder: a**b => exponentiation operator
 // Adding the calculator logic
 const defaultResult = 0; // This value cannot change
-let currentResult = defaultResult;
+let currentResult = defaultResult; // Global variable
 
 // Make use of the global constant:
 // const userInput = document.getElementById('input-number');
 function add() {
     // Does not return any value, it only modifies the global variable 'currentResult'
-   currentResult = currentResult + userInput.value
-   outputResult(currentResult, '');
+    const calcDescription = `${currentResult} + ${userInput.value}`;
+    currentResult = currentResult + parseInt(userInput.value); // number + number
+    outputResult(currentResult, "Your calculation: "+ calcDescription); // display the calculated result
 }
 
 // Note the 'add' syntax: Indirect function execution

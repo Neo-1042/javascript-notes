@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/styles/app.css" />
     <script>
       // alert('Hello, world from the index.html'); (Not recommended)
+      console.log("You may embed scripts in the <head> tag");
     </script>
   </head>
   <body>
@@ -33,9 +34,11 @@
       <h2 id="current-calculation">0</h2>
       <h2>Result: <span id="current-result">0</span></h2>
     </section>
+
     <!-- Moved the script from the head to the end of the body tag -->
-     <!-- Import the thing you depend on first  -->
+    <!-- Import the thing you depend on first  -->
     <script src="assets/scripts/vendor.js"></script> 
     <script src="assets/scripts/calculator_app.js"></script>
   </body>
+
 </html>
