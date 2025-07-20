@@ -3,18 +3,59 @@
 // Adding the calculator logic
 const defaultResult = 0; // This value cannot change
 let currentResult = defaultResult; // Global variable
+let logEntries = [];
+
+function getUserNumber() {
+    return parseInt(usrInput.value); // outsource the logic that was previously in add()
+}
+
+function writeOutput(operator, resultBeforeCalc, calcNumber) {
+    const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
+    outputResult(currentResult, calcDescription); // from vendor.js file
+}
 
 // Make use of the global constant:
 // const userInput = document.getElementById('input-number');
 function add() {
     // Does not return any value, it only modifies the global variable 'currentResult'
-    const calcDescription = `${currentResult} + ${userInput.value}`;
-    currentResult = currentResult + parseInt(userInput.value); // number + number
-    outputResult(currentResult, "Your calculation: "+ calcDescription); // display the calculated result
+    const enteredNumber = getUserNumber();
+    const initialResult = currentResult;
+    currentResult += enteredNumber;
+    writeOutput("+", initialResult, enteredNumber);
+    logOperator("+");
+}
+
+function subtract() {
+    const enteredNumber = getUserNumber();
+    const initialResult = currentResult;
+    currentResult -= enteredNumber;
+    writeOutput("-", initialResult, enteredNumber);
+    logOperator("-");
+}
+
+function multiply() {
+    const enteredNumber = getUserNumber();
+    const initialResult = currentResult;
+    currentResult *= enteredNumber;
+    writeOutput("*", initialResult, enteredNumber);
+    logOperator("*");
+}
+
+function divide() {
+    const enteredNumber = getUserNumber();
+    const initialResult = currentResult;
+    currentResult /= enteredNumber;
+    writeOutput("/", initialResult, enteredNumber);
+    logOperator("/");
+}
+
+function logOperator(operator) {
+    logEntries.push(operator); 
+    console.log(logEntries);
 }
 
 // Note the 'add' syntax: Indirect function execution
 addBtn.addEventListener("click", add); // Keep in mind that this function is executed only when the button is clicked!
-
-// Let's add this code to run after the botton was clicked
-// outputResult(currentResult, calculationDescription); // from vendor.js, fills the content in the <h2> elements
+subtractBtn.addEventListener("click", subtract);
+multiplyBtn.addEventListener("click", multiply);
+divideBtn.addEventListener("click", divide);

@@ -90,3 +90,24 @@ function add2() {
     currentResult = currentResult + +userInput.value; // NOTICE the extra '+' sign. I DON'T LIKE IT!! WTF JavaScript?!
     outputResult(currentResult, '');
 }
+
+let numx = 1;
+alert(numx++); // 2
+alert(++numx); // displays "1", after that, it is incremented
+
+///// MORE DATA TYPES /////
+
+// BOOLEANS
+let foo = true;
+let bar = false;
+
+// OBJECTS (Here is where the name JSON comes from)
+// Important for grouped/related data
+let my_json = {
+    name : Rodrigo,
+    age  : 29
+}
+
+// ARRAYS (linked lists, actually)
+// List data, unknown amounts of data
+let my_array = [1,2,3];
