@@ -76,7 +76,7 @@ function transform(numFoo, functionBar) {
     return functionBar(numFoo); // Catch the value with the return statement
 }
 
-///// CONVERTING DATA TYPES /////
+///////////////////// CONVERTING DATA TYPES /////////////////////
 
 // Even if an input field is marked as "number", it is handled by JS as a string
 function add() {
@@ -95,7 +95,7 @@ let numx = 1;
 alert(numx++); // 2
 alert(++numx); // displays "1", after that, it is incremented
 
-///// MORE DATA TYPES /////
+///////////////////// MORE DATA TYPES /////////////////////
 
 // BOOLEANS
 let foo = true;
@@ -111,3 +111,38 @@ let my_json = {
 // ARRAYS (linked lists, actually)
 // List data, unknown amounts of data
 let my_array = [1,2,3];
+console.log(my_array[0]);
+////////////////////////////////////////////////////////////////
+///////////////////// undefined, null, NaN /////////////////////
+////////////////////////////////////////////////////////////////
+
+// undefined = Default value of un-initialized variables
+let foo; // Value is 'undefined'
+// !!!! undefined is also a data type (WTH?)
+foo = 0;
+foo = undefined; // No sense, but it is allowed.
+
+// NULL = similar to 'undefined'. NEVER assumed by default.
+// You would have to assign it to "reset" or "clear" a variable
+
+let variable; // 'undefined' by default
+variable = 100;
+variable = null; // "clear" a variable
+// Useful when validating whether a value was set or not
+
+// NaN = Not a Number
+// NaN is NOT a type. However, it is technically of type "number" (WTF?), and 
+//  can therefore be used in calculations (WTF?!)
+
+// NaN is a kind of "calculation error code".
+// It's the result of invalid calculations: 3 * 'hello' ---> NaN
+////////////////////////////////////////////////////////////////
+// typeof = evaluate the type of a variable at runtime
+
+typeof "hello"; // "string"
+typeof 10; // "number"
+typeof 6.9; // "number"
+typeof true; // "boolean"
+
+typeof [1,2,3,4,5]; // "object"
+typeof {device : "Apple iPad Pro", year : 2025}; // "object"

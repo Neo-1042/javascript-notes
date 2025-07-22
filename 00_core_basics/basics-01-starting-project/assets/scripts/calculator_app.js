@@ -3,15 +3,33 @@
 // Adding the calculator logic
 const defaultResult = 0; // This value cannot change
 let currentResult = defaultResult; // Global variable
-let logEntries = [];
+let logEntries = []; // Array of objects (operation logging)
 
 function getUserNumber() {
     return parseInt(usrInput.value); // outsource the logic that was previously in add()
 }
 
+function logOperator(operator) {
+    logEntries.push(operator);
+    console.log(logEntries);
+}
+
 function writeOutput(operator, resultBeforeCalc, calcNumber) {
     const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
     outputResult(currentResult, calcDescription); // from vendor.js file
+}
+
+function writeToLog(operationIdentifier, prevResult, operationNumber, newResult) {
+    const logEntry = {
+        operation: operationIdentifier,
+        prevResult: prevResult,
+        operand: operationNumber,
+        result: newResult
+    };
+
+    logEntries.push(logEntry); // Append the entire JSON to the array (list) of logEntries
+    console.log(logEntry.operation); // Dot notation for the JSON
+    console.log(logEntries);
 }
 
 // Make use of the global constant:
@@ -21,8 +39,9 @@ function add() {
     const enteredNumber = getUserNumber();
     const initialResult = currentResult;
     currentResult += enteredNumber;
+
     writeOutput("+", initialResult, enteredNumber);
-    logOperator("+");
+    writeToLog("ADD", initialResult, enteredNumber, currentResult);
 }
 
 function subtract() {
@@ -30,7 +49,7 @@ function subtract() {
     const initialResult = currentResult;
     currentResult -= enteredNumber;
     writeOutput("-", initialResult, enteredNumber);
-    logOperator("-");
+    writeToLog("SUBTRACT", initialResult, enteredNumber, currentResult);
 }
 
 function multiply() {
@@ -38,7 +57,7 @@ function multiply() {
     const initialResult = currentResult;
     currentResult *= enteredNumber;
     writeOutput("*", initialResult, enteredNumber);
-    logOperator("*");
+    writeToLog("MULTIPLY", initialResult, enteredNumber, currentResult);
 }
 
 function divide() {
@@ -46,12 +65,7 @@ function divide() {
     const initialResult = currentResult;
     currentResult /= enteredNumber;
     writeOutput("/", initialResult, enteredNumber);
-    logOperator("/");
-}
-
-function logOperator(operator) {
-    logEntries.push(operator); 
-    console.log(logEntries);
+    writeToLog("DIVIDE", initialResult, enteredNumber, currentResult);
 }
 
 // Note the 'add' syntax: Indirect function execution
