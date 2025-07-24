@@ -14,6 +14,13 @@
       // alert('Hello, world from the index.html'); (Not recommended)
       console.log("You may embed scripts in the <head> tag");
     </script>
+    <!-- Moving JS scripts into here so that they are downloaded earlier-->
+    <!-- Add the 'defer' option so that execution is deferred until after the whole HTML file has been parsed -->
+    <script src="assets/scripts/vendor.js" defer></script>
+    <script src="assets/scripts/calculator_app.js" defer></script>
+
+    <!-- If you want a script to be loaded and executed earlier, add the 'async' option: -->
+    <script src="assets/scripts/async_script_dummy.js" async></script>
   </head>
   <body>
     <header>
@@ -35,10 +42,7 @@
       <h2>Result: <span id="current-result">0</span></h2>
     </section>
 
-    <!-- Moved the script from the head to the end of the body tag -->
-    <!-- Import the thing you depend on first  -->
-    <script src="assets/scripts/vendor.js"></script> 
-    <script src="assets/scripts/calculator_app.js"></script>
+    
   </body>
 
 </html>

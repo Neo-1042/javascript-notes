@@ -146,3 +146,27 @@ typeof true; // "boolean"
 
 typeof [1,2,3,4,5]; // "object"
 typeof {device : "Apple iPad Pro", year : 2025}; // "object"
+
+typeof null; // "object" (of course, ...)
+typeof NaN; // "number" (right...)
+////////////////////////////////////////////////////////////////
+// Introduction to the PERFORMANCE tab on Chrome's DevTools
+// Comment out the <link> to the fonts in the index.html file to simplify the analysis
+
+// Download index.html > Render HTML > app.css > vendor.js > app.js > ... > Exeuction of JS files
+// JS files were executed after a "long" time after being called and parsed
+// 20 ms of "pause" in this example, but this time could get longer
+
+// Desirable: JS scripts are loaded and executed as early as possible (after HTML is parsed, of course)
+
+// Solution: 'defer' attribute => download the JS script right away, but wait until the whole HTML file is parsed
+// i.e., without blocking the parsing of the HTML file
+
+// Also, move the <script> tags into the <head> tag so that it is downloaded earlier, but it still executed
+// right after the browser finishes parsing the HTML file.
+<script src="assets/scripts/vendor.js" defer></script>
+
+// END OF SECTION 2 (BASICS)
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
