@@ -12,5 +12,16 @@ Useful keyboard shortcuts:
     Command + Shift + C = Toggle Block Comment
 
 Installing VS Code Extensions
+
+JavaScript Documentation:
+MDN = Mozilla Developer Network
+https://developer.mozilla.org/en-US/
+
+Debug your code
+
+console.log(); // Later, use a proper debugger as soon as possible
+Chrome's debugging tools
+    Uncaught ReferenceError: parse is not defined
+VS Code Debugging Mode
 */
 
