@@ -1,13 +1,13 @@
 'use strict'; // Opting out of 'sloppy mode'
 
 /* =============== COURSE CONTENT ===============
-    CoreBasics => basic syntax, efficient development and debugging, control structures and loops, behind the scenes 
+    00_CoreBasics => basic syntax, efficient development and debugging, control structures and loops, behind the scenes 
     of JS, functions, DOM manipulation, arrays and iterables, objects.
 
-    Building a Strong Foundation => classes and OOP, constructor functions and prototypes, more about DOM & browser APIs,
+    01_Building a Strong Foundation => classes and OOP, constructor functions and prototypes, more about DOM & browser APIs,
         events, deep dive into functions, more about numbers and strings, asynchronous code, background HTTP (AJAX).
 
-    Advanced concepts => 3rd party libraries, JS modules, tooling (Webpack, Babel, ...), working with browser storage,
+    02_Advanced concepts => 3rd party libraries, JS modules, tooling (Webpack, Babel, ...), working with browser storage,
         browser support, JS frameworks, meta-programming, NodeJS introduction, security, deployment,
         performance optimizations and memory leaks.
 */
