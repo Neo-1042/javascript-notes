@@ -32,40 +32,48 @@ function writeToLog(operationIdentifier, prevResult, operationNumber, newResult)
     console.log(logEntries);
 }
 
+function calculateResult(calculationType) {
+    const enteredNumber = getUserNumber();
+    const initialResult = currentResult;
+    let mathOperator;
+
+    if (calculationType === 'ADD') {
+        currentResult += enteredNumber;
+        mathOperator = '+';
+    } else if (calculationType === 'SUBTRACT') {
+        currentResult -= enteredNumber;
+        mathOperator = '-';
+    } else if (calculationType === 'MULTIPLY') {
+        currentResult *= enteredNumber;
+        mathOperator = '*';
+    } else if (calculationType === 'DIVIDE') {
+        currentResult /= enteredNumber;
+        mathOperator = '/';
+    } else {
+        return "Not a defined operation";
+    }
+
+    writeOutput(mathOperator, initialResult, enteredNumber);
+    writeToLog(calculationType, initialResult, enteredNumber, currentResult);
+}
+
 // Make use of the global constant:
 // const userInput = document.getElementById('input-number');
 function add() {
     // Does not return any value, it only modifies the global variable 'currentResult'
-    const enteredNumber = getUserNumber();
-    const initialResult = currentResult;
-    currentResult += enteredNumber;
-
-    writeOutput("+", initialResult, enteredNumber);
-    writeToLog("ADD", initialResult, enteredNumber, currentResult);
+    calculateResult('ADD');
 }
 
 function subtract() {
-    const enteredNumber = getUserNumber();
-    const initialResult = currentResult;
-    currentResult -= enteredNumber;
-    writeOutput("-", initialResult, enteredNumber);
-    writeToLog("SUBTRACT", initialResult, enteredNumber, currentResult);
+    calculateResult('SUBTRACT');
 }
 
 function multiply() {
-    const enteredNumber = getUserNumber();
-    const initialResult = currentResult;
-    currentResult *= enteredNumber;
-    writeOutput("*", initialResult, enteredNumber);
-    writeToLog("MULTIPLY", initialResult, enteredNumber, currentResult);
+    calculateResult('MULTIPLY');
 }
 
 function divide() {
-    const enteredNumber = getUserNumber();
-    const initialResult = currentResult;
-    currentResult /= enteredNumber;
-    writeOutput("/", initialResult, enteredNumber);
-    writeToLog("DIVIDE", initialResult, enteredNumber, currentResult);
+    calculateResult('DIVIDE');
 }
 
 // Note the 'add' syntax: Indirect function execution
