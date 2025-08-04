@@ -47,6 +47,9 @@ function calculateResult(calculationType) {
         currentResult *= enteredNumber;
         mathOperator = '*';
     } else if (calculationType === 'DIVIDE') {
+        if (enteredNumber === 0) {
+            return "Cannot divide by zero";
+        }
         currentResult /= enteredNumber;
         mathOperator = '/';
     } else {

@@ -40,4 +40,5 @@ console.log(object1 === object2); // FALSE
 console.log(array1 == array2); // FALSE
 console.log(array1 === array2); // FALSE
 
-// 2 objects stores in different variables will never be the same
+// 2 JS Objects stored in different variables will never be the same
+///////////////////////////////////////////////////////////////////////////////////////////////////
