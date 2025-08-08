@@ -1,3 +1,6 @@
+// MONSTER KILLER APP
+// vendor.js file
+
 const monsterHealthBar = document.getElementById('monster-health');
 const playerHealthBar = document.getElementById('player-health');
 const bonusLifeEl = document.getElementById('bonus-life');
@@ -16,13 +19,15 @@ function adjustHealthBars(maxLife) {
 
 function dealMonsterDamage(damage) {
   const dealtDamage = Math.random() * damage;
-  monsterHealthBar.value = +monsterHealthBar.value - dealtDamage;
+  // monsterHealthBar.value = +monsterHealthBar.value - dealtDamage; I don't like this syntax
+  monsterHealthBar.value = parseFloat(monsterHealthBar.value) - dealtDamage;
   return dealtDamage;
 }
 
 function dealPlayerDamage(damage) {
   const dealtDamage = Math.random() * damage;
-  playerHealthBar.value = +playerHealthBar.value - dealtDamage;
+  // playerHealthBar.value = +playerHealthBar.value - dealtDamage; Ugly syntax
+  playerHealthBar.value = parseFloat(playerHealthBar.value) - dealtDamage;
   return dealtDamage;
 }
 
