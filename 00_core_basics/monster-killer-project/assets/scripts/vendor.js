@@ -32,7 +32,7 @@ function dealPlayerDamage(damage) {
 }
 
 function increasePlayerHealth(healValue) {
-  playerHealthBar.value = +playerHealthBar.value + healValue;
+  playerHealthBar.value = parseFloat(playerHealthBar.value) + healValue;
 }
 
 function resetGame(value) {
