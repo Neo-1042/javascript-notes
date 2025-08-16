@@ -17,14 +17,16 @@ adjustHealthBars(chosenMaxLife);
 
 function endRound() {
     
-
     // Who has won?
     if (currentMonsterHealth <= 0 && currentPlayerHealth > 0) {
         alert("Congratulations, you won!");
+        reset();
     } else if (currentPlayerHealth <= 0 && currentMonsterHealth > 0) {
         alert("GAME OVER");
+        reset();
     } else if (currentMonsterHealth <= 0 && currentPlayerHealth <= 0) {
         alert("Draw!");
+        reset();
     }
 }
 
@@ -56,6 +58,13 @@ function attackMonster(mode) {
         setPlayerHealth(initialPlayerHealth); // This change reflects on the app
     }
     endRound();
+}
+
+// Reset the game when you win, lose or draw
+function reset() {
+    currentMonsterHealth = chosenMaxLife;
+    currentPlayerHealth = chosenMaxLife;
+    resetGame(chosenMaxLife); // From vendor.js
 }
 
 
