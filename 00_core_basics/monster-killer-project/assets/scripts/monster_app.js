@@ -9,12 +9,15 @@ const HEAL_VALUE = 13;
 let chosenMaxLife = 100;
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
+let hasBonusLife = true; 
 
 adjustHealthBars(chosenMaxLife);
 
 // FUNCTION DEFINITIONS
 
 function endRound() {
+    
+
     // Who has won?
     if (currentMonsterHealth <= 0 && currentPlayerHealth > 0) {
         alert("Congratulations, you won!");
@@ -38,9 +41,20 @@ function attackMonster(mode) {
     const damage = dealMonsterDamage(maxDamage);
     currentMonsterHealth -= damage;
     
-    // The monster strikes back (based only on one value)
+    // Save the currentPlayerHealth before the monster strikes back
+    const initialPlayerHealth = currentPlayerHealth;
+
+    // Monster strikes back (based only on one value)
     const playerDamage = dealPlayerDamage(MONSTER_ATTACK_VALUE);
     currentPlayerHealth -= playerDamage;
+    // Validate whether the user has a bonus life or not
+    if (currentPlayerHealth <= 0 && hasBonusLife) {
+        hasBonusLife = false;
+        removeBonusLife();
+        currentPlayerHealth = initialPlayerHealth; // Retrieve the saved value and restore user's health
+        alert("The bonus life saved you! You're still alive");
+        setPlayerHealth(initialPlayerHealth); // This change reflects on the app
+    }
     endRound();
 }
 
@@ -62,15 +76,18 @@ function healPlayerHandler() {
         alert('You cannot heal beyond ' + chosenMaxLife + ' life points. MAX LIFE value reached.');
         healValue = chosenMaxLife - currentPlayerHealth;
     } else {
-        healValue = HEAL_VALUE; // increase by the fixed constant value
+        healValue = HEAL_VALUE; // set to the fixed constant value
     }
     increasePlayerHealth(healValue);
-    currentPlayerHealth += healValue;
+    currentPlayerHealth += healValue; // Update the value of that internal variable (not visually reflected on the app)
     endRound();
-    // TODO Why do I lose if I already have health > 0 ?
 }
 
-// Event Listeners on clicking the buttons:
+
+
+
+////////////////// Event Listeners on clicking the buttons //////////////////
 attackBtn.addEventListener('click', attackHandler);
 strongAttackBtn.addEventListener('click', strongAttackHandler);
 healBtn.addEventListener('click', healPlayerHandler);
+/////////////////////////////////////////////////////////////////////////////
