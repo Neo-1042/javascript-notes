@@ -6,6 +6,10 @@ const STRONG_ATTACK_VALUE = 17;
 const MONSTER_ATTACK_VALUE = 10;
 const HEAL_VALUE = 13;
 
+// Refactoring attack modes to avoid the risk of miss-typing
+const MODE_ATTACK = 'ATTACK'; // MODE_ATTACK = 0
+const MODE_STRONG_ATTACK = 'STRONG_ATTACK'; // MODE_STRONG_ATTACK = 1
+
 let userInput = prompt("Enter a max value for life points");
 console.log("User entered: " + userInput + " as chosenMaxLife");
 let chosenMaxLife = parseInt(userInput); // Instead of a hard-coded value
@@ -40,9 +44,9 @@ function endRound() {
 
 function attackMonster(mode) {
     let maxDamage;
-    if (mode === 'ATTACK') {
+    if (mode === MODE_ATTACK ) {
         maxDamage = ATTACK_VALUE;
-    } else if (mode === 'STRONG_ATTACK') {
+    } else if (mode === MODE_STRONG_ATTACK) {
         maxDamage = STRONG_ATTACK_VALUE;
     } else {
         return "Not a valid MODE of attack";
@@ -79,11 +83,11 @@ function reset() {
 // Logic for the "ATTACK" button
 // "*Handler()" is a naming convention, "*OnClick()" is another option
 function attackHandler() {
-    attackMonster('ATTACK'); 
+    attackMonster(MODE_ATTACK); 
 }
 
 function strongAttackHandler() {
-    attackMonster('STRONG_ATTACK');
+    attackMonster(MODE_STRONG_ATTACK);
 }
 
 function healPlayerHandler() {
