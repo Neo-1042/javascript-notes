@@ -44,6 +44,26 @@ function writeToLog(pEvent, pValue, pMonsterHealth, pPlayerHealth) {
         // target will be dynamically added
     };
 
+    switch (pEvent) {
+        case LOG_EVENT_PLAYER_ATTACK:
+            logEntry.target = 'MONSTER';
+            break;
+        case LOG_EVENT_PLAYER_STRONG_ATTACK:
+            logEntry.target = 'MONSTER';
+            break;
+        case LOG_EVENT_MONSTER_ATTACK:
+            logEntry.target = 'PLAYER'; 
+            break;
+        case LOG_EVENT_PLAYER_HEAL:
+            logEntry.target = '-';
+            break;
+        case LOG_EVENT_GAME_OVER:
+            logEntry.target = '-';
+            break;
+        default:
+            logEntry = {};
+    }
+    /*
     if (pEvent === LOG_EVENT_PLAYER_ATTACK ) {
         logEntry.target = 'MONSTER';
     } else if ( pEvent === LOG_EVENT_PLAYER_STRONG_ATTACK ) {
@@ -57,6 +77,7 @@ function writeToLog(pEvent, pValue, pMonsterHealth, pPlayerHealth) {
     } else {
         console.log("Not a valid mode");
     }
+    */
 
     battleLog.push(logEntry);
  }

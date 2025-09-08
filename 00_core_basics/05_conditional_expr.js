@@ -47,3 +47,22 @@ testValue = enteredValue || null; // Still, since enteredValue is empty (falsy),
 
 enteredValue = 'Max';
 testValue = enteredValue && ''; // Stores '', since the first value is "truthy"
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// SWITCH CASE STATEMENT
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+ev = userInput("Enter a value: ");
+
+switch(ev) {
+    case LOG_EVENT_PLAYER_ATTACK:
+        logEntry.target = 'MONSTER';
+        break;
+    case LOG_EVENT_PLAYER_STRONG_ATTACK:
+        logEntry = {
+            event: ev,
+            value: val,
+            target: 'MONSTER',
+            finalMonsterHealth: monsterHealth,
+            finalPlayerHealth: playerHealth
+        }
+}
