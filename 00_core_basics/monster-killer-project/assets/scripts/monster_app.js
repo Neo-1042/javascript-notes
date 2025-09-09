@@ -204,8 +204,29 @@ function healPlayerHandler() {
 }
 
 function printLogHandler() {
-    console.log(battleLog);
+    /* for (let i = 0; i < battleLog.length ; i++) {
+        console.log(battleLog[i]);
+    }
+
+    for (const logEntry of battleLog) {
+        console.log(logEntry);
+    }
+    */
+    let i = 0;
+    for (const logEntry of battleLog) {
+        console.log(`Entry number: ${i}`);
+        for (const key in logEntry) {
+            console.log(key);
+            console.log(logEntry[key]); // access the respective value
+        }
+        i++;
+    }
+
 }
+
+
+
+
 
 ////////////////// Event Listeners on clicking the buttons //////////////////
 attackBtn.addEventListener('click', attackHandler);
