@@ -8,6 +8,7 @@ for (let i = 0; i < 10; i++) {
 }
 
 // 2] for-of => ARRAYS
+// A new const x is generated for each iteration
 for (const x of someArray) {
     console.log(x);
 }
