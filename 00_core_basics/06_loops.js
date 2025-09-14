@@ -45,3 +45,32 @@ do {
     console.log(j);
     j++;
 } while (j < 20);
+
+// Use 'break' to stop the loop execution
+let myArray = [100,200,300,400,500,600,700,800,900,1000];
+
+for (const x of myArray) {
+    if (x > 300) break;
+    console.log(x); // 100, 200, 300
+}
+
+// Use 'continue' to skip iterations
+for (let i = 0; i < myArray.length; i++) {
+    if (i % 2 === 1) continue; // does not execute the rest of the loop
+    console.log("Entradas impares = " + myArray[i]);
+}
+
+// LABELED STATEMENTS FOR LOOPS (rarely used)
+// Suppose you have nested loops. 
+// Some condition in the inner loop should stop/skip iterations in the outer loop
+// How to access the outer loop from the inner loop?
+
+outerFor: for (let i = 0; i < 10 ; i++) {
+    console.log("OUTER LOOP");
+    innerFor: for (let j = 0; j < 10 ; j++) {
+        console.log("INNER LOOP");
+        if (j % 7 === 0) break outerFor;
+    }
+}
+
+// EOF
