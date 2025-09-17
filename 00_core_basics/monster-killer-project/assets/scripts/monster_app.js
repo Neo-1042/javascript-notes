@@ -19,6 +19,8 @@ let userInput = prompt("Enter a max value for life points");
 console.log("User entered: " + userInput + " as chosenMaxLife");
 let chosenMaxLife = parseInt(userInput); // Instead of a hard-coded value, the user provides this number
 
+// ERROR HANDLING: parseInt() does NOT generate error codes
+
 // LOGGING
 let battleLog = [];
 
