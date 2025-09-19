@@ -24,7 +24,7 @@ function getMaxLifeValue() {
     const enteredValue = prompt("Max life for you and the monster");
     const parsedValue = parseInt(enteredValue);
 
-    if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
+    if (isNaN(parsedValue) || parsedValue <= 0) {
         throw {message: "Invalid user input, not a number"};
     }
 

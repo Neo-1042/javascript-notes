@@ -15,19 +15,27 @@ const LOG_EVENT_MONSTER_ATTACK = 'MONSTER_ATTACKS';
 const LOG_EVENT_PLAYER_HEAL = 'PLAYER_HEALS';
 const LOG_EVENT_GAME_OVER = 'GAME_OVER';
 
-let userInput = prompt("Enter a max value for life points");
-console.log("User entered: " + userInput + " as chosenMaxLife");
-let chosenMaxLife = parseInt(userInput); // Instead of a hard-coded value, the user provides this number
-
-// ERROR HANDLING: parseInt() does NOT generate error codes
 
 // LOGGING
 let battleLog = [];
 
-if (isNaN(chosenMaxLife) || chosenMaxLife <= 0 ) {
-    chosenMaxLife = 100;
-    alert("Enter a valid positive integer. Setting maxLife to " + chosenMaxLife);
+// You can throw a number, a string or an object as an ERROR.
+// Most errors are objects that have a message property.
+function getMaxLifeValue() {
+
+    const enteredValue = prompt("Max life for you and the monster", "100");
+    const parsedValue = parseInt(enteredValue);
+
+    console.log("User entered: " + parsedValue + " as chosenMaxLife");
+
+    if (isNaN(parsedValue) || parsedValue <= 0) {
+        throw { message: 'Invalid user input, not a number' };
+    }
+
+    return parsedValue;
 }
+
+let chosenMaxLife = getMaxLifeValue();
 
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
