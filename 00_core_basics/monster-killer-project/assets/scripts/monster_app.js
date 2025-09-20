@@ -15,8 +15,8 @@ const LOG_EVENT_MONSTER_ATTACK = 'MONSTER_ATTACKS';
 const LOG_EVENT_PLAYER_HEAL = 'PLAYER_HEALS';
 const LOG_EVENT_GAME_OVER = 'GAME_OVER';
 
+let chosenMaxLife;
 
-// LOGGING
 let battleLog = [];
 
 // You can throw a number, a string or an object as an ERROR.
@@ -35,7 +35,13 @@ function getMaxLifeValue() {
     return parsedValue;
 }
 
-let chosenMaxLife = getMaxLifeValue();
+try {
+    chosenMaxLife = getMaxLifeValue();
+} catch (error) {
+    console.log(error);
+    chosenMaxLife = 100; // Fall-back logic
+    alert("Not a number. Default = 100 Life Points");
+}
 
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;

@@ -32,3 +32,22 @@ function getMaxLifeValue() {
 }
 
 let chosenMaxLife = getMaxLifeValue();
+
+/*
+You may enclose your whole script inside a try block to try and catch any error
+This is NOT a good idea. Not good for performance.
+
+You only want to enclose code into a try-catch statement where you have code that might
+give rise to errors you CAN NOT CONTROL.
+
+try {
+    // I cannot control possible errors in here, such as user input
+}
+*/
+
+try {
+    chosenMaxLife = getMaxLifeValue();
+} catch (error) {
+    console.log(error);
+    chosenMaxLife = 100; // Fall-back logic
+}
