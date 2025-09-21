@@ -30,9 +30,6 @@ function getMaxLifeValue() {
 
     return parsedValue;
 }
-
-let chosenMaxLife = getMaxLifeValue();
-
 /*
 You may enclose your whole script inside a try block to try and catch any error
 This is NOT a good idea. Not good for performance.
@@ -51,3 +48,20 @@ try {
     console.log(error);
     chosenMaxLife = 100; // Fall-back logic
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// FINALLY
+try {
+    // Possible throw {message : 'ERROR'} thrown
+} catch (error) {
+    console.log(error);
+    // Fall-back logic
+    // Catch the error so that it does not remain thrown
+    throw error; // Re-throw the error (advanced)
+} finally {
+    // This code will always execute, regardless of having errors or not
+}
+// try-catch-finally will also be important for NETWORK REQUESTS.
+
+// End of LOOPS and CONTROL STRUCTURES in JavaScript
+///////////////////////////////////////////////////////////////////////////////////////////////////
