@@ -64,3 +64,22 @@ console.log(name2, hobbies); // hobbies is available, hobbies2 is NOT
 
 // !!! In modern JavaScript, DO NOT use 'var' anymore.
 // Always use LET
+
+//////////////////////////////////////////////////////////////////////
+// HOISTING: pre-scan that JS performs before code execution
+
+console.log(userName); // undefined, but no error because of hoisting
+var userName = 'Arceus';
+
+console.log(newName); // Uncaught ReferenceError: Cannot access 'newName' before initialization
+let newName = 'Palkia';
+
+// With 'let', you are forced to only use your variables AFTER you declare and initialize them.
+
+var foo = 1;
+var foo = 2; // this is stupid, but is allowed in JavaScript (no suprises here)
+
+bar = 'Book'; // This is allowed because JS is a hippy language
+
+// Partial fix: add 'use strict'; at the beginning of your script
+// STRICT MODE was introduced with ES5
