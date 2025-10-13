@@ -33,3 +33,23 @@ function sayHi(name1, age1) {
 sayHi('Rodrigo', 29);
 //-----------------------------------------------------------------------------
 // FUNCTIONS vs METHODS
+
+// Methods are functions that are part of a JavaScript object
+const objeto1 = {
+    propiedad : "Ditto"
+    , accion : function poder() {
+        console.log("Ditto se transforma en cualquier pokémon");
+    }
+}
+
+const person = {
+    greet: function greet() {
+        console.log("This is a function stored inside an object :O");
+    }
+};
+
+person.greet();
+
+// Functions themselves are a special kind of OBJECTS :O
+// As such, functions are stored in the HEAP
+console.dir(greet);
