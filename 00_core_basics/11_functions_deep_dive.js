@@ -53,3 +53,39 @@ person.greet();
 // Functions themselves are a special kind of OBJECTS :O
 // As such, functions are stored in the HEAP
 console.dir(greet);
+//-----------------------------------------------------------------------------
+// Storing (assigning) functions() in constants and variables
+
+let myFunction = function () { // anonymous functions
+    console.log("Function stored inside a variable");
+};
+
+myFunction();
+//-----------------------------------------------------------------------------
+// Function declaration/statement
+function multiply(a,b) {
+    return a*b;
+}
+// Hoisted to the top. It can be declared anywhere in the file
+// Even after it has been called (I don't like this. Hippy language)
+
+
+//-----------------------------------------------------------------------------
+// Function Expression
+// Better approach, since it forces you to declare functions before calling them
+const multiply = function(x,y) {
+    return x*y;
+}
+// Hoisted to the top, but no initialized/defined. 
+// It cannot be declared anywhere in the file.
+//-----------------------------------------------------------------------------
+// ANONYMOUS FUNCTIONS
+
+// If you only need your function in a single place, you might prefer to use
+// an anonymous function.
+
+const someButton = document.getElementById('some-button');
+
+someButton.addEventListener('click', function() {
+    console.log("This is an anonymous function");
+});
