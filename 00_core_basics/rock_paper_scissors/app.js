@@ -11,7 +11,7 @@ const startGameBtn = document.getElementById('start-game-btn');
 // Declare your function using the better approach
 const start = function () {
     console.log("Game is starting ...");
-}
+} 
 
 // Functions themselves are a special kind of OBJECTS :O
 console.log("Typeof functions in JS: " + typeof start);
@@ -25,4 +25,10 @@ myFunction();
 
 // startGameBtn is an object. As such, it has properties that are 
 // accessible by the dot (.) operator
-startGameBtn.addEventListener('click', start);
+
+// ANONYMOUS FUNCTIONS. Only call this function when the button is clicked
+// The method addEventListener() will take an anonymous function as an
+// argument.
+startGameBtn.addEventListener('click', function() {
+    console.log("Game is starting ...");
+});
