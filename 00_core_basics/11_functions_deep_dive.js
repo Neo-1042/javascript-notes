@@ -90,7 +90,34 @@ someButton.addEventListener('click', function() {
     console.log("This is an anonymous function");
 });
 
+const normalSum = function(a,b) {
+    return a+b;
+};
+
 // ARROW FUNCTION SYNTAX
 const arrowSum = (a,b) => {
     return a+b;
 };
+// When the anonymous function with the arrow notation has a single expression inside,
+// you can omit the {} and the 'return' keyword.
+const arrowSum2 = (a,b) => a+b;
+const dotProduct = (x1, x2, y1, y2) => x1*y1 + x2*y2; // This resembles math notation, I like it.
+
+// Refactor this function with the ternary operator and the arrow notation:
+const getWinner = (cChoice, pChoice) =>
+    cChoice === pChoice 
+        ? RESULT_DRAW
+        : (cChoice === ROCK && pChoice === PAPER) ||
+        (cChoice === PAPER && pChoice === SCISSORS) ||
+        (cChoice === SCISSORS && pChoice === ROCK)
+        ? RESULT_PLAYER_WINS
+        : RESULT_COMPUTER_WINS;       
+
+// ARROW FUNCTIONS GENERAL SYNTAX
+(arg1, arg2, arg3) => {
+    // some code
+}
+// No arguments
+() => {
+    // Some code
+}
