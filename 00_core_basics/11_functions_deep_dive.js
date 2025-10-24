@@ -89,3 +89,8 @@ const someButton = document.getElementById('some-button');
 someButton.addEventListener('click', function() {
     console.log("This is an anonymous function");
 });
+
+// ARROW FUNCTION SYNTAX
+const arrowSum = (a,b) => {
+    return a+b;
+};

@@ -41,7 +41,8 @@ const getComputerChoice = function() {
     }
 };
 
-const getWinner = function(cChoice, pChoice) {
+// Convert into arrow function
+const getWinner = (cChoice, pChoice) => {
     if (cChoice === pChoice) {
         return RESULT_DRAW;
     } else if (
