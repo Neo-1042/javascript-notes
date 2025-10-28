@@ -3,9 +3,9 @@
 const ROCK = 'ROCK';
 const PAPER = 'PAPER';
 const SCISSORS = 'SCISSORS';
-const RESULT_DRAW = 'It is a draw';
-const RESULT_PLAYER_WINS = 'You Win! :D';
-const RESULT_COMPUTER_WINS = 'You loose';
+const RESULT_DRAW = 'IT IS A DRAW';
+const RESULT_PLAYER_WINS = 'YOU WIN! :D';
+const RESULT_COMPUTER_WINS = 'YOU LOSE :c';
 
 let gameIsRunning = false;
 
@@ -51,8 +51,14 @@ const getWinner = (cChoice, pChoice) => {
         (cChoice === SCISSORS && pChoice === ROCK) 
     ) {
         return  RESULT_PLAYER_WINS;
-    } else {
+    } else if (
+        (cChoice === PAPER && pChoice === ROCK) ||
+        (cChoice === SCISSORS && pChoice === PAPER) ||
+        (cChoice === ROCK && pChoice === SCISSORS)
+    ) {
         return RESULT_COMPUTER_WINS;
+    } else {
+        return "Not a valid option. Try again"
     }
 };
 
@@ -64,10 +70,27 @@ startGameBtn.addEventListener('click', function() {
     gameIsRunning = true;
     console.log("Game is starting ...");
 
-    const playerSelection = getPlayerChoice();
+    const playerChoice = getPlayerChoice();
     const computerChoice = getComputerChoice();
-    console.log("Player selected: " + playerSelection);
-    console.log("Computer says: " + computerChoice);
+    const winner = getWinner(computerChoice, playerChoice);
 
-    console.log("RESULT: " + getWinner(computerChoice, playerSelection));
+    // Log results
+    console.log("Player selected: " + playerChoice);
+    console.log("Computer says: " + computerChoice);
+    console.log("RESULT: " + winner);
+
+    // Display results to the user
+    // Reminder: 'let' has block scope for this anonymous function only
+    let message = `You picked: ${playerChoice}. Computer picked ${computerChoice}.`;
+    if (winner === RESULT_DRAW) {
+        message += `\nThus, ${RESULT_DRAW}`;
+    } else if (winner === RESULT_PLAYER_WINS) {
+        message += `\nThus, ${RESULT_PLAYER_WINS}`;
+    } else if (winner === RESULT_COMPUTER_WINS) {
+        message += `\nThus, ${RESULT_COMPUTER_WINS}`;
+    } else {
+        message = "Not a valid result. Try again";
+    }
+    alert(message);
+    gameIsRunning = false; // Reset the game
 });
