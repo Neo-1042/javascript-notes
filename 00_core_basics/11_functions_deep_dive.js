@@ -121,3 +121,13 @@ const getWinner = (cChoice, pChoice) =>
 () => {
     // Some code
 }
+
+// DEFAULT ARGUMENTS IN FUNCTIONS
+function default_value(arg1, arg2 = 10) {
+    return arg1 / arg2;
+}
+
+// JavaScript allows for default values to be set before the end (I hate JS, so sloppy)
+function hello(x1 = 10, x2, x3) {
+    return x1 + x2*x3;
+}

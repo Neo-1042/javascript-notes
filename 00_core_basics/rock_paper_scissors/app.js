@@ -63,16 +63,23 @@ const getWinner = (cChoice, pChoice) => {
 };
 
 
-startGameBtn.addEventListener('click', function() {
+startGameBtn.addEventListener('click', () => {
     if (gameIsRunning) {
         return;
     }
     gameIsRunning = true;
     console.log("Game is starting ...");
 
-    const playerChoice = getPlayerChoice();
+    const playerChoice = getPlayerChoice(); // Might be undefined
     const computerChoice = getComputerChoice();
-    const winner = getWinner(computerChoice, playerChoice);
+
+    let winner;
+    // If playerChoice is defined
+    if (playerChoice) {
+        winner = getWinner(computerChoice, playerChoice);
+    } else {
+        winner = getWinner(computerChoice); // Only JS does not give an error (Hippy language)
+    }
 
     // Log results
     console.log("Player selected: " + playerChoice);
