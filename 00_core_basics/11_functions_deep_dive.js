@@ -131,3 +131,33 @@ function default_value(arg1, arg2 = 10) {
 function hello(x1 = 10, x2, x3) {
     return x1 + x2*x3;
 }
+
+// REST OPERATOR (Not to be confused with the SPREAD operator)
+// (...rest)
+// (spread...) pulls elements out of an array
+// The rest operator takes all of the arguments passed to the function
+// and merge them into a new array.
+
+// The rest operator must be at the end of the parameter list
+const sumUp = (a, b, ...numbers) => {
+    let sum = 0;
+    for (const num of numbers) {
+        sum += num;
+    }
+    return sum;
+    // a,b are excluded in the calculation
+};
+
+// You can call the function by passing an array
+console.log(sumUp(1, 5, 10, -3, 6, 10));
+console.log(sumUp(1, 5, 10, -3, 6, 10, 25, 88));
+
+// Only with the function() keyword, you have the 'arguments' keyword available
+// 'arguments' is an array-like objects
+const subtractUp = function() {
+    let sum = 0;
+    for(const num of arguments) {
+        sum -= num
+    }
+    return sum;
+}
