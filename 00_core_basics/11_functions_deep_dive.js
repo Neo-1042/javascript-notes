@@ -127,16 +127,18 @@ function default_value(arg1, arg2 = 10) {
     return arg1 / arg2;
 }
 
-// JavaScript allows for default values to be set before the end (I hate JS, so sloppy)
+// JavaScript allows for default values to be set, even before the last parameter
+//  (I hate JS, so sloppy)
 function hello(x1 = 10, x2, x3) {
     return x1 + x2*x3;
 }
 
+//-----------------------------------------------------------------------------------------------//
 // REST OPERATOR (Not to be confused with the SPREAD operator)
 // (...rest)
 // (spread...) pulls elements out of an array
 // The rest operator takes all of the arguments passed to the function
-// and merge them into a new array.
+// and merges them into a new array.
 
 // The rest operator must be at the end of the parameter list
 const sumUp = (a, b, ...numbers) => {
@@ -161,3 +163,53 @@ const subtractUp = function() {
     }
     return sum;
 }
+//-----------------------------------------------------------------------------------------------//
+// FUNCTIONS INSIDE FUNCTIONS
+// Recall: functions are basically objects in JavaScript
+
+const sumUp2 = (a, b, ...numbers) => {
+
+    // Inner function
+    const validateNumber = function(numero) {
+        return isNaN(numero) ? 0 : numero;
+    };
+
+    let sum = 0;
+    for (const num of numbers) {
+        sum += validateNumber(num);
+    }
+    return sum;
+    // a,b are excluded in the calculation
+};
+//-----------------------------------------------------------------------------------------------//
+// CALLBACK FUNCTIONS
+// Callback functions are called by someting else, in this case,
+// the event listener on click of a button.
+startGameBtn.addEventListener('click', () => {
+    console.log("This is a callback function");
+});
+
+// In this next example, 'sumUp' will take a reference to a callback function (cb) as one of its
+// parameters:
+
+const sumUp3 = (cb, ...numbers) => {
+
+    const validateNumber = (number) => {
+        return isNaN(number) ? 0 : number;
+    };
+
+    let sum = 0; 
+    // for-of is for arrays
+    for(const num of numbers) {
+        sum += validateNumber(num);
+    }
+    cb(sum); // This callback function must be implemented.
+};
+
+const showResult = (result) => {
+    alert("The result after adding all numbers is: " + result);
+};
+
+// showResult is passed to sumUp3() as a reference to a callback function
+sumUp3(showResult, 1, 2, '34asd');
+
