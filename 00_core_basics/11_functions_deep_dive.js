@@ -212,4 +212,64 @@ const showResult = (result) => {
 
 // showResult is passed to sumUp3() as a reference to a callback function
 sumUp3(showResult, 1, 2, '34asd');
+///////////////////////////////////////////////////////////////////////////////
+// bind()
+
+// Do not use arguments. Use the rest operator instead.
+const subtractUp2 = function(cb, ...numbers) {
+
+    let sum = 0;
+    for (const num of arguments) {
+        sum -= num;
+    }
+    cb(sum);
+};
+
+const showResult3 = (messageText, result) => {
+    alert(messageText + ' - ' + result);
+};
+
+// Call showResult as a cb function
+subtractUp2(showResult, 1, 10, 15,20);
+
+// Functions are objects, and as such, they automatically
+// have special operations attached to them.
+const combine = function(resultHandler, operation, ...numbers) => {
+    const validateNumber = (number) => {
+        return isNaN(number) ? 0 : number;
+    };
+
+    let result = 0;
+    for (const num of numbers) {
+        if (operation === 'ADD') result += validateNumber(num);
+        else if (operation === 'SUBTRACT' ) result -= validateNumber(num); 
+        else return "Not a valid operation";
+    }
+    resultHandler(result);
+    
+};
+
+// bind() creates a new reference to a function, which is pre-configured
+// with the arguments it receives
+// bind() takes at least 2 parameters (this, a, b)
+combine(showResult2.bind(this, "The result after adding all numbers is = "), 'ADD', 1, 4, -2, 10);
+combine(showResult2.bind(this, "The result after subtracting all numbers is = "), 'SUBTRACT', 1, 4, -2, 10);
+
+// bind() example
+const personA = {
+    name: 'Alice',
+    greet: function () {
+        console.log(`Hello, my name is ${this.name}`);
+    }
+};
+
+const noBindGreet = personA.greet;
+unboundGreet(); // Output: "Hello, my name is undefined" (this refers to global object)
+
+const bindGreet = personA.greet.bind(personA);
+boundGreet(); // Output: "Hello, my name is Alice" (this is bound to 'personA')
+
+// bind() summary:
+// bind() is useful in situations where you want to pre-configure a function's arguments
+// when you a re not calling the function on your own.
 
