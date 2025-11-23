@@ -79,8 +79,34 @@ function divide() {
     calculateResult('DIVIDE');
 }
 
-// Note the 'add' syntax: Indirect function execution
-addBtn.addEventListener("click", add); // Keep in mind that this function is executed only when the button is clicked!
-subtractBtn.addEventListener("click", subtract);
-multiplyBtn.addEventListener("click", multiply);
-divideBtn.addEventListener("click", divide);
+// Apply bind()
+function calculate(operation) {
+    const enteredNumber = getUserNumber();
+    const initialResult = currentResult;
+
+    let operator = '';
+    if (operation === 'ADD') {
+        currentResult += enteredNumber;
+        operator = '+';
+    } else if (operation === 'SUBTRACT') {
+        currentResult -= enteredNumber;
+        operator = '-';
+    } else if (operation === 'MULTIPLY') {
+        currentResult *= enteredNumber;
+        operator = '*';
+    } else if (operation === 'DIVIDE') {
+        if (enteredNumber === 0) return "DIVISION ERROR";
+        
+        currentResult /= enteredNumber;
+        operator = '/';
+    }
+
+    writeOutput(operator, initialResult, enteredNumber);
+    writeToLog(operation, initialResult, enteredNumber, currentResult);
+}
+
+addBtn.addEventListener("click", calculate.bind(this, 'ADD')); // Keep in mind that this function is executed only when the button is clicked!
+
+subtractBtn.addEventListener("click", calculate.bind(this, 'SUBTRACT'));
+multiplyBtn.addEventListener("click", calculate.bind(this, 'MULTIPLY'));
+divideBtn.addEventListener("click", calculate.bind(this, 'DIVIDE'));
