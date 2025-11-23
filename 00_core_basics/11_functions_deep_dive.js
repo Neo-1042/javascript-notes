@@ -273,3 +273,19 @@ boundGreet(); // Output: "Hello, my name is Alice" (this is bound to 'personA')
 // bind() is useful in situations where you want to pre-configure a function's arguments
 // when you a re not calling the function on your own.
 
+///////////////////////////////////////////////////////////////////////////////
+// Function.prototype.call()
+// call() is very similar to bind(), but call() immediately executes the function
+// Setter
+function Producto(nombre, precio) {
+    this.nombre = nombre;
+    this.precio = precio;
+}
+// Note: TypeScript says: "this constructor function may be converted into a class declaration"
+function Comida (nombre, precio) {
+    Producto.call(this, nombre, precio);
+    this.category = "Alimentos";
+}
+// Function.prototype.apply()
+// apply() es casi idéntico a call(), sólo que en lugar de aceptar this, arg1, arg2, etc.
+// apply() acepta un simple array con los argumentos.
