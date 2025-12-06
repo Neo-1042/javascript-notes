@@ -45,3 +45,27 @@ The DOM exposes 2 main kinds of global objects:
 
 // Access the real JavaScript object for 'document'
 console.dir(document);
+
+/* The browser will parse the HTML document and create an object representation
+of all the elements (tags) in said document. This is the DOM.
+
+All of the HTML elements (tags) are translated into element nodes, thereby getting
+a TREE of NODES.
+
+Tag ---> Element Node
+White space or text ---> Text Node
+*/
+
+// $0 always gives you access to the last element you selected in the "Elements" tab using the DEV tools
+
+/* <h1>This tag will be stored in the DOM like so:</h1>
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    ...
+*/
+
+// * Note: you can directly modify the text of some element in the browser, and the change will be shown,
+// but this does NOT mean that the HTML code will change. These changes are temporary.
