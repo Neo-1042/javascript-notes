@@ -66,6 +66,51 @@ h1 {
     margin-block-end: 0.67em;
     ...
 */
-
 // * Note: you can directly modify the text of some element in the browser, and the change will be shown,
 // but this does NOT mean that the HTML code will change. These changes are temporary.
+///////////////////////////////////////////////////////////////////////////////
+// QUERYING ELEMENTS (NODES) FROM THE DOM WITH JAVASCRIPT
+
+// document.querySelector(); -> Querying by CSS selector, 
+// document.getElementById(); -> Querying by ID
+// document.querySelectorAll(); -> Multiple
+// document.getElementsByTagName(); -> Multiple
+// document.getElementsByClassName(); -> Old, but still used
+
+// A direct reference to DOM element is returned
+// ------------------------------------------------------------------------- //
+/* Difference between NODE and ELEMENT (ELEMENTS \subset NODES)
+Every item in the DOM is a node.
+We have: element, text and attribute nodes.
+
+Elements are one type of nodes. 
+Elements are actually nodes that are created directly from HTML tags,
+not from the text.
+
+Elements have special properties and methods.
+*/ 
+// <h1 id="main-title">Dive into the DOM!</h1>
+const MAIN_TITLE = document.getElementById("main-title");
+console.dir(MAIN_TITLE);
+
+// Display information of a child node of some element
+console.log(MAIN_TITLE.some_child_node);
+
+const HEADPHONES = document.getElementsByClassName('list-item'); // Old
+
+// document.querySelector(); -> More modern approach
+// CSS
+// .class-name
+// #id_name
+
+// querySelector(); -> Returns only the FIRST matching item
+const HUAWEI_FREE_BUDS_PRO_4 = document.querySelector('.list-item');
+
+// querySelectorAll(); -> Returns a NODE LIST of all the matched items
+const HEADPHONES2 = document.querySelectorAll('.list-item');
+
+// ------------------------------------------------------------------------- //
+// Live vs non-live NodeList
+
+// document.querySelectorAll(); -> returns NON LIVE
+// document.getXByY(); returns LIVE
