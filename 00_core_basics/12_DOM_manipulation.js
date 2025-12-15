@@ -109,8 +109,39 @@ const HUAWEI_FREE_BUDS_PRO_4 = document.querySelector('.list-item');
 // querySelectorAll(); -> Returns a NODE LIST of all the matched items
 const HEADPHONES2 = document.querySelectorAll('.list-item');
 
+let SINGLE_HEADPHONE = document.querySelector('ul li:first-of-type');
+SINGLE_HEADPHONE = document.querySelector('ul li:last-of-type');
+
 // ------------------------------------------------------------------------- //
 // Live vs non-live NodeList
 
 // document.querySelectorAll(); -> returns NON LIVE
 // document.getXByY(); returns LIVE
+// ------------------------------------------------------------------------- //
+
+/*
+The foundational concept of DOM manipulation is that JavaScript allows you to
+manipulate the information in the rendered HTML page without loading it again,
+that is, without requesting the server a different version of the current page.
+
+[+] Add Event Listeners
+
+[+] Highly Dynamic, faster and better UX
+
+*/
+
+/*
+HTML Reminder: load your JavaScript script RIGHT AFTER the whole HTML document
+has been initially parsed, like so: (DEFER means: "download the JavaScript
+early, but only run it once you are done with parsing the HTML page")
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM Interaction</title>
+  <script src="app.js" defer></script>
+        <!-- To avoid querying for NODES that do not yet exist -->
+</head>
+
+*/
