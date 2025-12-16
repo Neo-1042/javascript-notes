@@ -145,3 +145,6 @@ early, but only run it once you are done with parsing the HTML page")
 </head>
 
 */
+
+// CSS Pseudo-selector:
+const SECOND_LIST_ITEM = document.querySelector("ul li:nth-of-type(2)");
