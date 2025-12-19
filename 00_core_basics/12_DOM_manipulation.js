@@ -148,3 +148,54 @@ early, but only run it once you are done with parsing the HTML page")
 
 // CSS Pseudo-selector:
 const SECOND_LIST_ITEM = document.querySelector("ul li:nth-of-type(2)");
+
+/*
+SUMMARY: Node Query Methods
+
+Note: You can only query for element nodes (reminder: element nodes \subset nodes )
+
+document.body => Selects the <body></body> element node.
+document.head => Selects the <head></head> element node.
+document.documentElement => Selects the <html></html> element node
+
+QUERY METHODS:
+*/
+const SOME_CSS_SELECTOR = "#some-id";
+document.querySelector(SOME_CSS_SELECTOR); // e.g. #some-id, .some-class or divp.some-class
+
+const ANOTHER_CSS_SELECTOR = ".some-class";
+document.querySelectorAll(ANOTHER_CSS_SELECTOR); // e.g. #some-id, .some-class or divp.some-class
+// Returns all matching DOM elements as a static (non-live) NodeList.
+
+const SOME_ID = "main-header";
+document.getElementById(SOME_ID); // The same id should NOT occur more than once in your HTML document
+
+const SOME_CSS_CLASS = "some-class";
+document.getElementsByClassName(SOME_CSS_CLASS); // Live collection
+
+const SOME_HTTP_TAG = "p";
+document.getElementsByTagName(SOME_HTTP_TAG); // Live collection
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// EVALUATING & MANIPULATING DOM ELEMENTS
+// These changes are only stored in memory; they are not changed in the HTML nor the CSS code.
+
+<p id="welcome-text" class="text-default">Welcome!</p>
+
+const h1 = document.querySelector("h1");
+const p = document.getElementById("welcome-text");
+// READ PROPERTIES
+console.log(p.textContent);
+console.log(p.id);
+console.log(p.className);
+
+// MODIFY PROPERTIES
+p.className = "new-class"
+h1.textContent = "New DOM"; 
+h1.style.color = "green";
+h1.style.backgroundColor = "blue";
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// ATTRIBUTES VS PROPERTIES
+
+// Often (but not always), attributes are mapped to properties and "live synchronization" is set up.
+
+<input id="input-1" class="input-default" value="Enter text..."></input>
