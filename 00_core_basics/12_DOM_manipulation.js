@@ -195,7 +195,26 @@ h1.style.color = "green";
 h1.style.backgroundColor = "blue";
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // ATTRIBUTES VS PROPERTIES
+// Live Synchronization
 
 // Often (but not always), attributes are mapped to properties and "live synchronization" is set up.
 
 <input id="input-1" class="input-default" value="Enter text..."></input>
+
+const input0 = document.getElementById("input-1");
+/* Attribute (of a tag) => What you actually add in the HTML code
+To  each attribute there will be a DOM property assigned to it.
+
+input0.id        ---> 1:1 mapping + live-sync
+input0.className ---> Different names, but live sync ('class' vs 'className')
+input0.value     ---> 1:1 mapping, but only 1-way live sync (ATTRIBUTE -> property)
+*/
+<input type="text" id="text2" value="default text"></input>
+const input2 = document.getElementById("text2");
+
+input2.value = "Hello, new text"; // This text will not be changed as an attribute, only as a property
+
+// However, if you DO want to change the ATTRIBUTE:
+input2.setAttribute('value', 'NEW_VALUE');
+console.log(input2.value);
+///////////////////////////////////////////////////////////////////////////////////////////////////
