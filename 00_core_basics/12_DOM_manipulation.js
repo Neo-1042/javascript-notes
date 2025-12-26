@@ -217,4 +217,34 @@ input2.value = "Hello, new text"; // This text will not be changed as an attribu
 // However, if you DO want to change the ATTRIBUTE:
 input2.setAttribute('value', 'NEW_VALUE');
 console.log(input2.value);
+
+input.value = input.getAttribute('value'); // Reset the original value of that attribute
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+// Selecting multiple elements
+
+const allListItems = document.querySelectorAll('li'); // NodeList (NON LIVE)
+const allListItems2 = document.getElementsByTagName('li'); // Modern approach. (LIVE)
+
+console.log(allListItems[0]);
+console.log(allListItems[1]);
+console.log(allListItems[2]);
+
+for(const listItem of allListItems) {
+    console.dir(listItem);
+}
+
+/* Quiz:
+3] What is a difference between
+document.querySelector('#someId');
+document.getElementById('someId');
+
+querySelector() uses a CSS selector and can match ANY elements (depending on the provided selector)
+while getElementById() looks only for the ID.
+
+5] In the below example, is 'value' an ATTRIBUTE or a PROPERTY?
+
+<input value="Enter your text here:" type="text">
+
+Answer: An ATTRIBUTE.
+
+*/
