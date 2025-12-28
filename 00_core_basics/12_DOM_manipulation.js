@@ -248,3 +248,47 @@ while getElementById() looks only for the ID.
 Answer: An ATTRIBUTE.
 
 */
+
+/*
+TRAVERSING THE DOM
+
+Once you select a node element, you might be interested in parsing all of its child nodes.
+
+Child = Direct child node or element
+<div>
+    <p>Direct child node from div</p>
+</div>
+
+Descendant = Direct or indirect child node or element.
+
+Parent = Direct parent node.
+
+Ancestor = Direct or indirect parent node.
+
+                    parentNode, parentElement, closest()
+                        ^
+                        |
+previousSibling <- Current Node -> nextSibling, nextElementSibling
+                        |
+                        v
+                    childNodes, children, querySelector()
+                    firstChild, firstElementChild, lastChild, lastElementChild
+
+DIFFERENCE BETWEEN CHILD NODES AND CHILD ELEMENT NODES.
+
+ul0.children -> gives access to all child ELEMENT NODES.
+ i.e. only child nodes that correspond to HTML TAGS (elements)
+      text nodes are EXCLUDED here.
+
+ul0.childNodes -> gives access to all child NODES (both ELEMENT and TEXT nodes)
+
+Note: by default, white spaces are ignored if they come before or after a word like this:
+<li>  AirPods Pro2 </li>
+You can override this by setting the style:
+element.style {
+    white-space:pre;
+}
+
+
+*/
+

@@ -22,3 +22,11 @@ for (const listItem of allListItems2) {
 }
 
 const input0 = document.querySelector("input");
+
+// Difference between child nodes and child element nodes.
+
+// ul0.children -> gives access to all child element nodes.
+//  i.e. only child nodes that correspond to HTML tags (elements)
+//       text nodes are EXCLUDED here.
+const ul0 = document.querySelector("ul");
+console.log(ul0.children[0]);
