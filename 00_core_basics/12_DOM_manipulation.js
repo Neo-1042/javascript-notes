@@ -288,7 +288,13 @@ You can override this by setting the style:
 element.style {
     white-space:pre;
 }
-
-
+===================================================================================================
+parentNode
+parentElement
 */
 
+const li2 = document.querySelector('li');
+console.log(li2.parentNode);
+console.log(li2.parentElement);
+
+// Text nodes cannot have child nodes
